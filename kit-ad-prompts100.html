@@ -1,0 +1,978 @@
+<!doctype html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>広告運用・代理店業務 実践プロンプト100選</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet"><style>
+:root{--brand:#D9774F;--brand-deep:#C15640;--brand-soft:rgba(217,119,79,.12);--accent:#D9774F;--accent-deep:#B24E33;
+--bg:#F1ECE3;--paper:#FBF8F2;--ink:#2A2620;--ink-mid:#6E6557;--line:#E4D9C7;--head:'M PLUS Rounded 1c';}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans JP',-apple-system,'Hiragino Sans',sans-serif;line-height:1.7;}
+.wrap{max-width:960px;margin:0 auto;background:var(--paper);min-height:100vh;}
+header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:2px solid var(--brand);padding:16px 28px;}
+header .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+header img{width:40px;height:40px;border-radius:50%;border:2px solid var(--paper);box-shadow:0 2px 8px rgba(0,0,0,.14);}
+header .ttl{font-family:var(--head);font-weight:900;font-size:20px;color:var(--brand-deep);line-height:1.2;}
+header .ttl small{display:block;font-size:12px;color:var(--ink-mid);font-weight:500;}
+.badge{display:inline-block;background:var(--brand);color:#fff;font-family:var(--head);font-weight:900;font-size:13px;border-radius:999px;padding:4px 14px;}
+.hbtns{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:6px;background:var(--accent);border:2px solid var(--brand);color:var(--ink);
+border-radius:999px;padding:8px 18px;font-weight:900;font-size:14px;cursor:pointer;text-decoration:none;font-family:'Noto Sans JP';}
+.btn.ghost{background:var(--paper);border:1.5px solid var(--line);color:var(--brand-deep);}
+.btn.sm{padding:6px 14px;font-size:13px;}
+main{padding:24px 28px 60px;}
+.lead{font-size:15px;color:var(--ink-mid);margin-bottom:18px;}
+h2.cat{font-family:var(--head);font-weight:900;font-size:22px;color:var(--ink);margin:30px 0 14px;padding-left:12px;border-left:5px solid var(--brand);}
+.icard{background:var(--paper);border:1.5px solid var(--line);border-left:4px solid var(--brand);border-radius:12px;padding:16px 18px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.ititle{font-family:var(--head);font-weight:900;font-size:17px;color:var(--ink);margin-bottom:5px;}
+.imeta{font-size:12.5px;color:var(--ink-mid);margin-bottom:10px;}
+.idesc{font-size:14.5px;color:var(--ink);margin-bottom:10px;}
+pre.prompt{background:var(--ink);color:#ECECEA;border-radius:10px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;
+font-family:ui-monospace,Menlo,monospace;font-size:13px;line-height:1.65;max-height:340px;overflow-y:auto;margin-bottom:10px;}
+.cbtns{display:flex;gap:8px;flex-wrap:wrap;}
+.toolbar{position:sticky;top:74px;z-index:15;background:var(--paper);padding:12px 0;border-bottom:1px solid var(--line);margin-bottom:8px;}
+.toolbar input{width:100%;padding:11px 16px;border:1.5px solid var(--line);border-radius:999px;font-size:15px;font-family:inherit;background:#fff;color:var(--ink);}
+.toolbar input:focus{outline:none;border-color:var(--brand);}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px;}
+.chip{background:var(--paper);border:1.5px solid var(--line);color:var(--ink-mid);border-radius:999px;padding:5px 13px;font-size:13px;font-weight:700;cursor:pointer;}
+.chip.on{background:var(--brand);border-color:var(--brand);color:#fff;}
+.count{font-size:13px;color:var(--ink-mid);margin:6px 0 4px;}
+.hidden{display:none!important;}
+footer{padding:26px 28px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-mid);text-align:center;}
+footer a{color:var(--brand-deep);}
+@media(max-width:600px){main{padding:18px 16px 50px;}header{padding:12px 16px;}}
+</style></head><body><div class="wrap"><header><div class="top"><img src="data:image/png;base64,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" alt="ClaudeCodeチャンネル"><div class="ttl">広告運用・代理店業務 実践プロンプト100選<small>ClaudeCodeチャンネル・プレゼント</small></div><span class="badge">100個</span>
+<div class="hbtns"><a class="btn ghost" href="./present.html">← 一覧へ</a><button class="btn" onclick="downloadText('pfull','ad-ops-prompts100.md',this)">⬇ 全件ダウンロード</button></div>
+</div></header><main>
+<p class="lead">今回の2社の事例に沿った、広告運用の現場でそのまま使える100項目。各カードのボタンから個別にコピー、上部から全件ダウンロードできます。</p>
+<h2 class="cat">クリエイティブ生成・素材制作</h2>
+<div class="icard"><div class="ititle">1. 実写リファレンスから広告バナーを量産する</div><pre class="prompt" id="p1">前提: 実写で写真・映像を撮った商品素材を数枚アップロードした状態で使う、広告クリエイティブ担当者向けの指示。
+指示: アップロードした写真をリファレンスとして、商品のディテール（色・形状・ロゴ配置）を変えずに、背景と構図だけを変えたバリエーションを5案作って。1案ごとに狙っているターゲット層も添えて。
+出力形式: 各案ごとに「案名／狙い（1行）／変更点（背景・構図）」を箇条書きでまとめ、生成の意図が一覧できる表にして。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p1',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p1','prompt-1.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">2. 物理的に不可能な演出を検討する</div><pre class="prompt" id="p2">前提: 商品の内部構造や作用を視覚的に見せたい広告クリエイティブの企画段階。
+指示: この商品（サプリ／化粧品／家電など、都度指定）の効果を、実写では撮れない見せ方（体内での動き、内部構造の透過など）でアイデア出しして。実写と生成AIそれぞれで実現可能かどうかも判定して。
+出力形式: アイデアごとに「見せ方／実写可否／生成AI向き度（◎○△）」の3列表で。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p2',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p2','prompt-2.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">3. 既存クリエイティブの量産バリエーション出し</div><pre class="prompt" id="p3">前提: 1本の当たりクリエイティブがあり、そこから展開案を増やしたい状況。
+指示: この当たりクリエイティブの構成要素（フック・訴求ポイント・CTA）を分解し、フック部分だけを5パターン変えた台本案を作って。訴求ポイントとCTAは変えないこと。
+出力形式: 元クリエイティブの分解結果を先に箇条書きで示し、そのあとにフック違いの5パターンを番号付きリストで。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p3',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p3','prompt-3.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">4. リファレンス画像を使ったプロンプト設計</div><pre class="prompt" id="p4">前提: 画像生成AI（Nano Banana等）に渡すプロンプトを作る場面。参考画像はすでに用意されている。
+指示: 添付のリファレンス画像の構図・光の当たり方・色味を維持しつつ、被写体だけを別の商品に差し替えるための画像生成プロンプトを作って。商品のディテールを崩さない指示を明記すること。
+出力形式: 生成プロンプト本文をそのまま貼れる形で1つ出し、あわせて「崩れやすいポイントと対策」を3行で添えて。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p4',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p4','prompt-4.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">5. 実写で撮った方がいいものを判定する</div><pre class="prompt" id="p5">前提: クリエイティブ制作の初期段階で、AI生成と実写のどちらで作るか判断したい。
+指示: これから作る素材リスト（都度渡す）について、それぞれ「AI生成向き」か「実写の方がいい」かを判定して。商品ディテールの正確性が重要なものは実写寄りに倒す判断基準で。
+出力形式: 素材名／判定／理由（1行）の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p5',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p5','prompt-5.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">6. CG風の演出案を安く作る</div><pre class="prompt" id="p6">前提: 従来は外部発注していたCG演出を、生成AIでのコスト圧縮に置き換えたい。
+指示: 従来CGで発注していた演出内容（都度渡す）を、生成AIで代替できないか検討して。代替できる場合はそのままのプロンプト案を、できない場合は理由と次善策を出して。
+出力形式: 「代替可否／プロンプト案 or 次善策」の2段構成で、判断の根拠も1行添える。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p6',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p6','prompt-6.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">7. 広告動画の背景だけ差し替える</div><pre class="prompt" id="p7">前提: すでに撮った動画素材があり、コンセプトに合わせて背景の雰囲気だけ変えたい。
+指示: 主役（人物・商品）の動きや色味は変えず、背景だけを「白背景／黒背景／暖色系の生活感ある背景」の3パターンに差し替える生成の指示文を作って。
+出力形式: 3パターンそれぞれの指示文を分けて出し、どのコンセプトに合うかを1行で添える。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p7',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p7','prompt-7.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">8. 複数商品のクリエイティブを一括量産する</div><pre class="prompt" id="p8">前提: 同じフォーマットで扱う商品数が多い（10点以上）状況。
+指示: 共通のバナーフォーマット（構図・文字配置）を1つ決め、渡した商品リストの分だけ、商品名・価格・訴求文だけを差し替えたバリエーションを作る手順を設計して。
+出力形式: 手順を番号リストで示し、最後に「差し替えが必要な要素一覧」をチェックリスト形式で。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p8',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p8','prompt-8.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">9. インタメ系エンタメ演出のアイデア出し</div><pre class="prompt" id="p9">前提: 若年層向けにエンタメ性の強いクリエイティブを企画している。
+指示: この商品カテゴリ（都度指定）で、SNSでバズりやすいエンタメ演出（誇張・コミカルな展開等）のアイデアを10本出して。景表法・プラットフォーム規約に抵触しない範囲で。
+出力形式: アイデアごとに「概要／狙う反応（笑い・驚き等）」の2列。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p9',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p9','prompt-9.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">10. クリエイティブの色味・トーンを統一する</div><pre class="prompt" id="p10">前提: 複数人が別々に作った素材を、1つのブランドトーンに揃えたい。
+指示: 渡す複数のクリエイティブ（色味・雰囲気がバラバラ）を、指定のブランドカラー・トーンに揃えるための修正指示を、素材ごとに作って。
+出力形式: 素材名／現状の課題／修正指示（1〜2行）の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p10',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p10','prompt-10.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">11. 代替素材のプロンプトを即興で作る</div><pre class="prompt" id="p11">前提: 用意する予定だった素材が急遽使えなくなり、生成AIで代替する必要がある。
+指示: 用意する予定だった内容（構図・被写体・シーン）を伝えるので、それを再現する生成プロンプトをその場で作って。ディテールが重要な箇所は「参考資料が必要」と明記して。
+出力形式: 生成プロンプト本文＋「参考資料なしで再現できる自信度（高中低）」を添えて。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p11',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p11','prompt-11.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">12. ブランドガイドラインに沿った素材チェック</div><pre class="prompt" id="p12">前提: 生成した素材が、ブランドのトンマナ規定に沿っているか確認したい。
+指示: 渡すブランドガイドライン（色・フォント・NG表現）と、生成済みの素材の説明を照合し、逸脱している箇所を指摘して。
+出力形式: 逸脱箇所／ガイドラインのどの項目に反するか／修正案、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p12',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p12','prompt-12.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">13. Before/After訴求のビジュアル台本を作る</div><pre class="prompt" id="p13">前提: 商品の効果を視覚的に伝えるBefore/After構成のクリエイティブを作りたい。
+指示: この商品（都度指定）のBefore/After訴求を、誇張しすぎない範囲でビジュアル台本にして。効果を保証するような断定表現は避けること。
+出力形式: Before描写／After描写／ナレーション案、の3段構成。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p13',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p13','prompt-13.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">14. 素材のサイズ・比率違い展開を洗い出す</div><pre class="prompt" id="p14">前提: 1本の素材を複数の配信面（Feed/Story/Reels等）に展開したい。
+指示: 元の素材（構図情報を渡す）を、Feed用（1:1）・Story用（9:16）・横型（16:9）にそれぞれ再構成するときに、削れる・足りなくなる要素を洗い出して。
+出力形式: 配信面ごとに「必要な調整点」を箇条書きで。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p14',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p14','prompt-14.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">15. ペルソナ別に訴求ポイントを変えた素材案</div><pre class="prompt" id="p15">前提: 同じ商品を異なるターゲット層に向けて展開したい。
+指示: この商品（都度指定）について、渡す3つのペルソナそれぞれに刺さる訴求ポイントとビジュアルの方向性を提案して。
+出力形式: ペルソナ名／刺さる訴求／ビジュアルの方向性、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p15',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p15','prompt-15.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">16. 生成AIで作った素材のクレジット消費を見積もる</div><pre class="prompt" id="p16">前提: 生成AIツールのクレジット（利用枠）を管理しながら制作したい。
+指示: これから作りたい素材リスト（点数・複雑さ）を渡すので、試行錯誤を含めた想定クレジット消費量と、消費を抑えるための工夫を提案して。
+出力形式: 素材ごとの想定消費量（相対的な多寡）と、節約のコツを箇条書きで。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p16',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p16','prompt-16.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">17. 参考動画のトーン分析から自社案を作る</div><pre class="prompt" id="p17">前提: 他社の反響が良かった広告動画を参考にしたいが、模倣にならないようにしたい。
+指示: 参考動画の構成（テンポ・カット割り・訴求の順番）を要素分解し、それを踏まえた「自社商品向けの別企画」を1本考えて。表現やセリフは真似しないこと。
+出力形式: 参考動画の構成分析（箇条書き）→ 自社案の台本骨子、の2段構成。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p17',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p17','prompt-17.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">18. クリエイティブのA/Bテスト設計</div><pre class="prompt" id="p18">前提: 複数の訴求パターンを比較検証したい。
+指示: この商品（都度指定）について、フック・訴求・CTAのいずれか1要素だけを変えたA/Bパターンを3セット設計して。検証したい仮説も添えて。
+出力形式: パターン名／変更箇所／検証したい仮説、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p18',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p18','prompt-18.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">19. 季節・イベントに合わせた素材展開案</div><pre class="prompt" id="p19">前提: 年間の販促カレンダーに沿ってクリエイティブを企画したい。
+指示: 直近3ヶ月のイベント（都度指定、例: 季節の変わり目・セール時期）に合わせて、この商品のクリエイティブ企画案を月ごとに1本ずつ出して。
+出力形式: 月／イベント／企画概要、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p19',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p19','prompt-19.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">20. 縦型ショート動画の冒頭2秒フック案</div><pre class="prompt" id="p20">前提: TikTok/Reels/Shorts向けの縦型動画で、離脱の多い冒頭を強化したい。
+指示: この商品（都度指定）の縦型ショート動画について、最初の2秒で止めさせるフック案を10本出して。誇張表現・虚偽にならない範囲で。
+出力形式: フック案を番号リストで、それぞれ狙いを1行添える。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p20',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p20','prompt-20.txt',this)">⬇ ダウンロード</button></div></div>
+<h2 class="cat">広告運用・入稿・レポート</h2>
+<div class="icard"><div class="ititle">21. 複数アカウントへの一括入稿設計</div><pre class="prompt" id="p21">前提: 同じクリエイティブを複数の広告アカウントに入稿する必要がある。
+指示: このクリエイティブ（本数）を、渡すアカウントリスト（数・媒体）に一括入稿する手順を設計して。アカウントごとに異なる設定（年齢・地域・配信面）がある場合の扱い方も含めて。
+出力形式: 手順を番号リストで、アカウントごとの差分は表で整理して。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p21',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p21','prompt-21.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">22. 入稿前のターゲティング設計チェック</div><pre class="prompt" id="p22">前提: 新規キャンペーンの入稿直前に設定ミスがないか確認したい。
+指示: この広告のターゲティング設定（年齢・地域・興味関心・配信面）を渡すので、ちぐはぐな点や、商品と噛み合っていない箇所を指摘して。
+出力形式: 設定項目／懸念点／修正案、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p22',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p22','prompt-22.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">23. 日次レポートの自動要約フォーマットを作る</div><pre class="prompt" id="p23">前提: 毎朝の数値確認を、AIによる要約通知に置き換えたい。
+指示: 渡す広告管理画面のスクリーンショットまたは数値データから、CPA・CTR・消化金額の要点を3行で要約するフォーマットを設計して。異常値（前日比◯%以上の変化）は強調表示するルールも含めて。
+出力形式: 要約テンプレート本文（3行）＋異常値の判定基準、の2段構成。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p23',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p23','prompt-23.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">24. 予算オーバー（防発）の早期検知ルール</div><pre class="prompt" id="p24">前提: 予算超過に気づくのが遅れて赤字化するのを防ぎたい。
+指示: この広告アカウントの日予算と現在の消化ペースを渡すので、このペースで進むと何時ごろ予算超過するかを試算し、対応が必要なタイミングを教えて。
+出力形式: 試算結果（時刻の目安）と、推奨アクション（配信停止／予算調整等）を1〜2行で。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p24',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p24','prompt-24.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">25. 配信結果のPDCA判断を支援する</div><pre class="prompt" id="p25">前提: 配信中の広告の成果が微妙で、次のアクションを決めたい。
+指示: この広告の直近の数値推移（CPA・CTR・フリークエンシー）を渡すので、「クリエイティブを変える」「ターゲットを絞る」「配信を止める」のどれが適切か、判断根拠つきで提案して。
+出力形式: 判断（1つに絞る）／根拠（数値ベース）／次にやること、の3項目。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p25',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p25','prompt-25.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">26. 複数媒体の成果を横並びで比較する</div><pre class="prompt" id="p26">前提: Google・Meta・LINEヤフー・TikTok等、複数媒体に配信している状況。
+指示: 渡す媒体別の数値（CPA・CVR・消化金額）を横並びで比較し、どの媒体に予算を寄せるべきか提案して。媒体特性（ユーザー層の違い）も踏まえること。
+出力形式: 媒体比較表＋提案（1〜2行）。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p26',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p26','prompt-26.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">27. 入稿ミスの事前チェックリストを作る</div><pre class="prompt" id="p27">前提: 予算を預かる立場として、入稿ミスによる過剰配信を防ぎたい。
+指示: 入稿前に確認すべき項目（予算・期間・ターゲティング・クリエイティブ枚数など）を、渡す過去のミス事例をもとにチェックリスト化して。
+出力形式: □のチェック項目を箇条書きで、重要度の高いものには⚠️を付けて。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p27',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p27','prompt-27.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">28. 週次の予算配分を再設計する</div><pre class="prompt" id="p28">前提: 週の途中で成果の良し悪しに応じて予算配分を見直したい。
+指示: 渡す週次の広告アカウント別成果（CPA・消化金額）をもとに、来週の予算配分案を作って。成果の良いものに寄せつつ、テスト予算も一定確保する方針で。
+出力形式: アカウント名／今週CPA／来週の配分案（増減）、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p28',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p28','prompt-28.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">29. クリエイティブ疲弊（フリークエンシー上昇）の検知</div><pre class="prompt" id="p29">前提: 同じクリエイティブを配信し続けて反応が落ちてきていないか確認したい。
+指示: 渡すフリークエンシーとCTRの推移から、クリエイティブが疲弊しているサインが出ているか判定し、出ていれば差し替えのタイミングを提案して。
+出力形式: 判定（疲弊あり／なし）／根拠／推奨アクション。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p29',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p29','prompt-29.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">30. レポートを非エンジニアにも分かる言葉で要約する</div><pre class="prompt" id="p30">前提: クライアント向けに、専門用語を使わない報告資料を作りたい。
+指示: この広告レポート（数値・専門用語込み）を、広告に詳しくないクライアント担当者にも伝わる言葉に言い換えて要約して。
+出力形式: 元の数値は残しつつ、それぞれに平易な一言解説を添える。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p30',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p30','prompt-30.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">31. 配信先の絞り込み判断（PC/モバイル・配置）</div><pre class="prompt" id="p31">前提: 配信先ごとの成果に差が出てきて絞り込みを検討したい。
+指示: 渡す配置別（PC/モバイル、フィード/ストーリーズ等）の成果データから、どの配置を止めるべきか、根拠つきで提案して。
+出力形式: 配置ごとの成果一覧表＋提案（止める/続ける）。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p31',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p31','prompt-31.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">32. 複数クリエイティブの入稿順序を設計する</div><pre class="prompt" id="p32">前提: 複数本のクリエイティブを、テスト目的で段階的に入稿したい。
+指示: この本数のクリエイティブを、いきなり全部ではなく段階的にテストする入稿スケジュールを設計して。学習期間や予算配分も含めて。
+出力形式: 週ごとの入稿スケジュール表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p32',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p32','prompt-32.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">33. 赤字案件の原因切り分け</div><pre class="prompt" id="p33">前提: 配信しているが赤字（売れていない）状態の案件がある。
+指示: 渡す数値（CPA・CVR・LP直帰率）から、赤字の原因が「クリエイティブ」「ターゲティング」「LP」のどこにありそうか切り分けて。
+出力形式: 疑わしい箇所（優先順位つき）／根拠、の2列。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p33',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p33','prompt-33.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">34. 複数アカウントの異常値を一括スキャンする</div><pre class="prompt" id="p34">前提: 管理しているアカウント数が多く、目視での異常検知が追いつかない。
+指示: 渡す複数アカウントの数値一覧から、前日比で大きく変動している項目（予算消化・CPA・CTR）だけを抽出して報告して。
+出力形式: アカウント名／異常項目／変動幅、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p34',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p34','prompt-34.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">35. 入稿後のダブルチェック指示文</div><pre class="prompt" id="p35">前提: 入稿ミスによるクライアント信頼低下を防ぎたい。
+指示: 入稿が完了した広告設定（予算・期間・ターゲット・クリエイティブ）の内容を渡すので、意図した内容と一致しているか、想定される訴求ターゲットとズレがないかを確認して。
+出力形式: 確認項目ごとに「OK／要確認」の判定と理由。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p35',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p35','prompt-35.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">36. 成果が良かった要因の言語化</div><pre class="prompt" id="p36">前提: 好調な案件の勝ち筋を、他の案件に横展開したい。
+指示: この好調な案件（数値・クリエイティブ概要）について、なぜ成果が良かったのか要因を分解して。他の案件に転用できそうな要素も指摘して。
+出力形式: 要因分解（箇条書き）→ 転用できそうな要素（1〜2点）。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p36',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p36','prompt-36.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">37. 媒体別のクリエイティブサイズ要件を整理する</div><pre class="prompt" id="p37">前提: 複数媒体に同じ企画を展開するとき、サイズ・尺の違いで手戻りが起きやすい。
+指示: 渡す配信予定の媒体リストごとに、必要なクリエイティブのサイズ・尺・ファイル形式の要件を整理して。
+出力形式: 媒体名／サイズ／尺／形式、の4列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p37',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p37','prompt-37.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">38. 成果報告のスライド構成案を作る</div><pre class="prompt" id="p38">前提: クライアント向け月次報告のスライドを効率よく作りたい。
+指示: 渡す月次数値サマリーをもとに、クライアント報告用スライドの構成案（結論→数値→要因→来月アクション）を作って。
+出力形式: スライドごとのタイトルと入れる内容を箇条書きで。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p38',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p38','prompt-38.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">39. 配信停止判断のための損益分岐点計算</div><pre class="prompt" id="p39">前提: 案件の継続可否を、感覚ではなく数字で判断したい。
+指示: 渡す商品の利益率と現在のCPAから、損益分岐となるCPAラインを計算し、現状がそれを超えているか判定して。
+出力形式: 損益分岐CPA／現状CPA／判定（継続可否）、の3項目。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p39',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p39','prompt-39.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">40. 入稿作業のログを引き継ぎ用に残す</div><pre class="prompt" id="p40">前提: 担当者交代時の引き継ぎで情報が漏れやすい。
+指示: 今日行った入稿・設定変更の内容を、次の担当者が読んでも分かる引き継ぎメモの形式でまとめて。
+出力形式: 日付／変更内容／理由／次にやるべきこと、の4項目。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p40',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p40','prompt-40.txt',this)">⬇ ダウンロード</button></div></div>
+<h2 class="cat">レギュレーションチェック・審査対応</h2>
+<div class="icard"><div class="ititle">41. クライアント別NGワードリストとの照合</div><pre class="prompt" id="p41">前提: クライアントごとに使ってはいけない表現のルールが決まっている。
+指示: 渡す広告原稿を、渡すNGワードリスト（このクライアント固有のルール）と照合し、該当箇所を指摘して。指摘には該当ルールの番号も添えて。
+出力形式: 該当箇所（原文引用）／該当ルール／修正案、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p41',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p41','prompt-41.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">42. 薬機法・景表法に抵触しそうな表現の検出</div><pre class="prompt" id="p42">前提: 健康食品・化粧品等、規制の厳しいジャンルの広告原稿をチェックしたい。
+指示: この広告原稿について、効果を保証する断定表現や、薬機法・景表法に抵触しやすい言い回しがないか洗い出して。断定はできないので「疑わしい箇所」として報告する形にして。
+出力形式: 該当箇所／懸念理由／言い換え案、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p42',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p42','prompt-42.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">43. 会社独自の表記ルールチェック（大文字・社名表記等）</div><pre class="prompt" id="p43">前提: 社名やブランド名の表記ゆれを防ぎたい。
+指示: この原稿に含まれる会社名・ブランド名・製品名の表記が、渡す正しい表記ルールと一致しているか確認して。
+出力形式: 誤表記箇所／正しい表記、の2列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p43',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p43','prompt-43.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">44. 差し戻し理由の分析と再発防止</div><pre class="prompt" id="p44">前提: 何度も同じ理由で審査に差し戻されている状況を改善したい。
+指示: 渡す過去の差し戻し履歴（理由の一覧）を分析し、頻出する差し戻し理由のパターンを整理して。今後のチェック項目に加えるべきものを提案して。
+出力形式: 頻出パターン（頻度順）／今後のチェック項目案。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p44',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p44','prompt-44.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">45. 表現の言い換えバリエーションを出す</div><pre class="prompt" id="p45">前提: NGと判定された表現を、意図を保ったまま安全な表現に置き換えたい。
+指示: このNG表現を、伝えたい意図（都度指定）は保ったまま、規約に抵触しない言い換え案を3パターン出して。
+出力形式: 言い換え案を3つ、それぞれのニュアンスの違いを1行で。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p45',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p45','prompt-45.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">46. 組織用語の言い換えルールチェック</div><pre class="prompt" id="p46">前提: 社内で「下の人間」等、社外向けに不適切な表現を使わないルールがある。
+指示: この原稿・資料の中に、社内向けの言い回しがそのまま社外向け表現として残っていないか確認して。
+出力形式: 該当箇所／推奨する言い換え、の2列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p46',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p46','prompt-46.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">47. 新規クライアントのレギュレーションDB雛形を作る</div><pre class="prompt" id="p47">前提: 新しいクライアントを担当することになり、審査ルールをこれから整備したい。
+指示: このクライアントから受け取ったブランドガイドライン（都度渡す）を、チェックしやすいNGワード・NG表現のリスト形式に整理して。
+出力形式: カテゴリ（表現・数値・比較表現等）ごとにNG項目を箇条書きで。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p47',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p47','prompt-47.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">48. 複数クライアントのルールを混同しないための確認</div><pre class="prompt" id="p48">前提: 複数クライアントを掛け持ちしており、ルールの取り違えが起きやすい。
+指示: この原稿がどのクライアント向けかを踏まえ、他のクライアントのルールが誤って適用されていないか確認して。
+出力形式: 確認結果（問題なし／要修正）と該当箇所。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p48',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p48','prompt-48.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">49. 誇大広告になっていないかのセルフチェック</div><pre class="prompt" id="p49">前提: 訴求を強めたい気持ちと規約遵守のバランスを取りたい。
+指示: この訴求文について、実際のデータや根拠と比べて誇張になっていないか確認して。根拠が弱い場合は「弱め表現」への言い換え案も出して。
+出力形式: 訴求文／根拠の有無／言い換え案（必要な場合）、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p49',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p49','prompt-49.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">50. 比較表現（業界一位・最安等）の根拠チェック</div><pre class="prompt" id="p50">前提: 比較優位を示す表現を使いたいが、根拠が必要な規約がある。
+指示: この比較表現（業界一位・最安・業界初等）について、根拠として何が必要かを整理し、渡す手元資料でその根拠を満たせているか判定して。
+出力形式: 表現／必要な根拠／充足状況（○×）、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p50',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p50','prompt-50.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">51. 審査提出前の最終読み合わせ指示文</div><pre class="prompt" id="p51">前提: 審査に出す直前の最終チェック工程を効率化したい。
+指示: この原稿一式（渡す）を、これまで指摘されたことのある観点（クライアント固有ルール・薬機法・景表法・表記ルール）で総合的にチェックして、提出可否を判定して。
+出力形式: 総合判定（提出可／要修正）／観点ごとの結果一覧。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p51',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p51','prompt-51.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">52. 動画クリエイティブのテロップ表現チェック</div><pre class="prompt" id="p52">前提: 動画内のテロップにも文字ベースの審査ルールが適用される。
+指示: この動画のテロップ文字起こし（渡す）を、通常の広告原稿と同じ基準でチェックして。
+出力形式: 該当箇所（該当テロップ）／懸念点／修正案、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p52',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p52','prompt-52.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">53. レギュレーション更新時の差分チェック</div><pre class="prompt" id="p53">前提: クライアントからルールの一部変更連絡があった。
+指示: 旧ルールと新ルール（両方渡す）の差分を洗い出し、既存の稼働中クリエイティブの中に新ルールで引っかかるものがないか確認する手順を作って。
+出力形式: 差分一覧（旧→新）／既存クリエイティブへの影響有無の確認手順。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p53',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p53','prompt-53.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">54. 表現チェックの精度を上げるフィードバックループ</div><pre class="prompt" id="p54">前提: 差し戻されたものを次回から検出できるようにしたい。
+指示: 今回審査で新たにNGと分かった表現（都度渡す）を、今後のチェック用データベースに追加する形式でまとめて。
+出力形式: 「NG表現／NGと判断された理由／今後の判定ルールへの追加文」の3点セット。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p54',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p54','prompt-54.txt',this)">⬇ ダウンロード</button></div></div>
+<h2 class="cat">LP分析・記事/コンテンツ生成</h2>
+<div class="icard"><div class="ititle">55. 商品LPから記事のターゲット・悩みを抽出する</div><pre class="prompt" id="p55">前提: 記事（KLP）を作る前段階で、LPの情報を整理したい。
+指示: このLPのURL（または内容）から、ターゲット層・抱えている悩み・欲しい未来（ベネフィット）を抽出して。
+出力形式: ターゲット／悩み／欲しい未来、の3項目を箇条書きで。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p55',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p55','prompt-55.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">56. ストーリーフォーミュラで記事の骨子を作る</div><pre class="prompt" id="p56">前提: LP分析の結果をもとに、記事本文の構成を組み立てたい。
+指示: さっき抽出したターゲット・悩み・欲しい未来をもとに、共感→気づき→解決策提示→商品紹介の流れで記事の骨子を作って。
+出力形式: 各パートの見出し案と、そこで書く内容の要点（2〜3行）。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p56',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p56','prompt-56.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">57. 記事を大量パターン生成して選別する</div><pre class="prompt" id="p57">前提: 1つのLPから複数の切り口で記事を量産し、良いものを選びたい。
+指示: このLPの情報をもとに、異なる切り口（体験談風／比較検討風／専門家解説風など）の記事骨子を5パターン作って。
+出力形式: パターン名／切り口の説明／向いていそうな読者層、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p57',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p57','prompt-57.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">58. 記事内の画像配置プランを作る</div><pre class="prompt" id="p58">前提: 記事の文章と画像を交互に配置してテンポよく読ませたい。
+指示: この記事本文（渡す）を読んで、どこに画像を入れると理解が深まるかを判定し、各箇所で入れるべき画像の内容（説明図・使用シーン等）を指定して。
+出力形式: 挿入位置（見出し名）／画像の内容案、の2列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p58',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p58','prompt-58.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">59. 記事のSEOタイトル・見出し案を作る</div><pre class="prompt" id="p59">前提: 検索流入も狙いたい記事を書いている。
+指示: この記事本文の内容から、検索されやすいタイトル案を5本と、見出し（H2）構成案を作って。誇張・薬機法に抵触する語は避けること。
+出力形式: タイトル案5本（箇条書き）＋見出し構成（番号リスト）。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p59',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p59','prompt-59.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">60. 記事のトーンをブランドに合わせて調整する</div><pre class="prompt" id="p60">前提: 記事の文体がブランドイメージと合っているか確認したい。
+指示: この記事本文を、渡すブランドトーン（例: 親しみやすい／専門的で信頼感）に合わせて調整して。
+出力形式: 調整後の記事本文全体。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p60',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p60','prompt-60.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">61. LP直帰率が高い箇所を推測する</div><pre class="prompt" id="p61">前提: LPの数値（直帰率・滞在時間）から改善点を探りたい。
+指示: このLPの構成（セクション順）と、渡す数値データ（各セクションの離脱ポイントが分かるもの）から、離脱が起きていそうな箇所を推測して。
+出力形式: 該当セクション／推測される離脱理由／改善案、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p61',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p61','prompt-61.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">62. 記事とLPの内容の整合性チェック</div><pre class="prompt" id="p62">前提: 記事からLPへ遷移したときに、内容の齟齬で離脱されるのを防ぎたい。
+指示: この記事とLP（両方渡す）を読み比べて、訴求内容や約束していることにズレがないか確認して。
+出力形式: ズレている箇所／記事側の記載／LP側の記載、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p62',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p62','prompt-62.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">63. 記事の量産におけるノウハウの言語化</div><pre class="prompt" id="p63">前提: 当たり記事を書いてきた経験を、AIが再現できる形で残したい。
+指示: これまで当たった記事（都度渡す複数本）に共通する型（構成・言い回し・展開のパターン）を分析して、今後の記事生成に使えるルールとして言語化して。
+出力形式: 共通する型の要素を箇条書きで、それぞれ具体例つきで。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p63',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p63','prompt-63.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">64. 既存記事のリライト・鮮度アップ</div><pre class="prompt" id="p64">前提: 過去に書いた記事の情報が古くなってきている。
+指示: この既存記事を、最新の情報（渡す最新データ・トレンド）を反映してリライトして。元の構成・トーンは維持すること。
+出力形式: リライト後の記事本文全体。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p64',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p64','prompt-64.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">65. 複数商品共通で使える記事テンプレートを作る</div><pre class="prompt" id="p65">前提: 同じジャンルの商品を今後何本も扱う予定がある。
+指示: このジャンル（都度指定）の商品記事に共通して使える構成テンプレートを作って。商品ごとに差し替える箇所を明示すること。
+出力形式: テンプレート本文（差し替え箇所は【】で明示）。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p65',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p65','prompt-65.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">66. 記事のCTA（行動喚起）文言を複数出す</div><pre class="prompt" id="p66">前提: 記事の最後で商品ページへの遷移率を上げたい。
+指示: この記事の内容を踏まえたCTA文言を5パターン出して。押し付けがましくなく、記事の流れから自然に読める言い回しで。
+出力形式: CTA案5本（箇条書き）。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p66',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p66','prompt-66.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">67. ユーザーの声・体験談パートの構成案</div><pre class="prompt" id="p67">前提: 記事内に信頼感を高めるユーザーの声セクションを入れたい。
+指示: この商品カテゴリで、記事に入れるユーザーの声セクションの構成案（何人分、どんな属性、どんな悩み→どう変わったか）を作って。実在しない体験談を捏造しないよう、構成のみに留めること。
+出力形式: 構成案（人物属性・語る内容の骨子）を3パターン。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p67',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p67','prompt-67.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">68. 記事の読了率を上げる導入部の改善</div><pre class="prompt" id="p68">前提: 記事冒頭での離脱を減らしたい。
+指示: この記事の導入部（最初の3〜5行）を、読者の悩みへの共感から始まる形に書き直して。誇張表現は避けること。
+出力形式: 書き直し後の導入部を3パターン。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p68',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p68','prompt-68.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">69. 記事作成の待ち時間中にできる次の作業を洗い出す</div><pre class="prompt" id="p69">前提: 記事生成に数十分かかる間、手が空く時間をどう使うか考えたい。
+指示: 記事生成を待っている間に並行して進められる、広告運用側の別タスクを洗い出して。優先度順に並べて。
+出力形式: タスク名／優先度／所要目安、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p69',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p69','prompt-69.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">70. 記事のファクトチェック観点リストを作る</div><pre class="prompt" id="p70">前提: AI生成記事に事実誤認が混ざっていないか確認したい。
+指示: この記事本文について、数値・効果・比較表現のうち、根拠の裏取りが必要な箇所を洗い出して。
+出力形式: 該当箇所（引用）／確認すべき内容、の2列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p70',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p70','prompt-70.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">71. 記事のカテゴリ別パフォーマンス比較</div><pre class="prompt" id="p71">前提: どの切り口の記事が成果につながりやすいか把握したい。
+指示: 渡す記事カテゴリ別の成果データ（CTR・遷移率）から、次に量産すべき切り口を提案して。
+出力形式: カテゴリ別成果一覧表＋提案（1〜2行）。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p71',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p71','prompt-71.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">72. 記事のタイトルABテスト案を作る</div><pre class="prompt" id="p72">前提: 同じ記事本文で、タイトルの効果検証をしたい。
+指示: この記事本文に対して、異なる訴求角度のタイトルを3案作り、それぞれどんな読者に刺さりそうか添えて。
+出力形式: タイトル案／想定読者／訴求角度、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p72',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p72','prompt-72.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">73. LPと記事のリンク構造を整理する</div><pre class="prompt" id="p73">前提: 複数の記事・LPが増えてきて、どこからどこに遷移させるか整理したい。
+指示: 渡す記事・LPのリストから、どの記事からどのLPに遷移させるのが最適か、内容の一致度をもとに提案して。
+出力形式: 記事名／推奨遷移先LP／理由（1行）、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p73',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p73','prompt-73.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">74. 記事量産の品質を落とさないチェック体制案</div><pre class="prompt" id="p74">前提: 生成本数を増やすほど品質のばらつきが心配になる。
+指示: 記事を大量生成する運用において、最低限守るべき品質基準と、人によるレビューが必要な箇所を切り分けて設計して。
+出力形式: 品質基準（箇条書き）／AI任せでよい部分／人のレビューが必須な部分。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p74',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p74','prompt-74.txt',this)">⬇ ダウンロード</button></div></div>
+<h2 class="cat">SNS企画・投稿運用</h2>
+<div class="icard"><div class="ititle">75. 月間投稿企画をトレンドと過去実績から作る</div><pre class="prompt" id="p75">前提: 毎月の投稿企画を、トレンド調査と過去の反応データを踏まえて作りたい。
+指示: 渡す直近のトレンド情報と過去投稿のインサイトデータから、来月の投稿企画を10本作って。それぞれ狙う反応（保存・シェア・コメント等）も添えて。
+出力形式: 企画タイトル／狙う反応／概要（1〜2行）、の3列表を10本分。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p75',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p75','prompt-75.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">76. カルーセル投稿の構成案を作る</div><pre class="prompt" id="p76">前提: 横スライド式のカルーセル投稿を作りたい。
+指示: このテーマ（都度指定）で、カルーセル投稿（1枚目タイトル→中身複数枚→まとめ）の構成案を作って。各スライドの見出しと中の文章要点を含めて。
+出力形式: スライド番号／見出し／本文要点、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p76',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p76','prompt-76.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">77. ミーティング議事録から次月の企画のヒントを拾う</div><pre class="prompt" id="p77">前提: 毎月のミーティングで出た話を企画に反映したい。
+指示: この議事録（渡す）から、投稿企画のヒントになりそうな話題・要望を抽出して。
+出力形式: 話題／企画化するとしたらどんな投稿になるか、の2列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p77',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p77','prompt-77.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">78. キャプション（本文）を複数トーンで作る</div><pre class="prompt" id="p78">前提: 投稿の画像・カルーセルは決まっていて、キャプションだけ複数案欲しい。
+指示: このカルーセルの内容（渡す）に対して、キャプションを「共感重視」「情報重視」「エンタメ寄り」の3トーンで作って。
+出力形式: トーン名／キャプション本文、の対で3セット。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p78',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p78','prompt-78.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">79. ブランドチェック込みの投稿最終確認</div><pre class="prompt" id="p79">前提: 投稿前にブランドのトンマナ・NG表現を確認したい。
+指示: この投稿内容（画像説明＋キャプション）を、渡すブランドガイドラインと照合し、修正すべき点があれば指摘して。
+出力形式: 確認項目ごとの判定（OK／要修正）と修正案。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p79',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p79','prompt-79.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">80. 投稿の差し戻し理由から改善指示を出す</div><pre class="prompt" id="p80">前提: 承認者から修正依頼が返ってきた企画を直したい。
+指示: この差し戻しコメント（渡す）をもとに、企画のどこをどう直せばいいか、具体的な修正指示に変換して。
+出力形式: 差し戻しコメント／対応する修正指示、の対応表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p80',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p80','prompt-80.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">81. 週次でAI活用事例を共有するテンプレート</div><pre class="prompt" id="p81">前提: 社内でAI活用の知見を共有する文化を作りたい。
+指示: 今週試したAI活用の内容（都度渡す）を、他メンバーが読んで真似しやすい共有フォーマットにまとめて。
+出力形式: 【やったこと】【使ったツール・プロンプト】【結果・気づき】の3項目。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p81',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p81','prompt-81.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">82. 複数アカウント分の投稿企画を一括生成する</div><pre class="prompt" id="p82">前提: 運用するSNSアカウントが複数あり、まとめて企画を立てたい。
+指示: 渡すアカウントリスト（それぞれのテーマ・ターゲット）ごとに、来月の投稿企画をそれぞれ5本ずつ作って。
+出力形式: アカウント名ごとに見出しを分け、それぞれ企画タイトルを箇条書きで。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p82',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p82','prompt-82.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">83. インサイトデータから伸びる投稿の傾向を分析する</div><pre class="prompt" id="p83">前提: 過去投稿のインプレッション・保存数データがある。
+指示: 渡す過去投稿のインサイトデータから、反応が良かった投稿に共通する要素（テーマ・投稿時間・フォーマット）を分析して。
+出力形式: 共通要素（箇条書き）と、次の企画に活かす提案。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p83',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p83','prompt-83.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">84. 投稿スケジュールのカレンダー案を作る</div><pre class="prompt" id="p84">前提: 決まった企画を、投稿日にどう割り振るか決めたい。
+指示: この企画リスト（渡す）を、渡す投稿カレンダーの空き枠に、テーマが偏らないよう割り振って。
+出力形式: 日付／投稿テーマ、の表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p84',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p84','prompt-84.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">85. 投稿文の文字数・プラットフォーム制約チェック</div><pre class="prompt" id="p85">前提: プラットフォームごとに文字数やハッシュタグ数の制約が違う。
+指示: この投稿文（渡す）が、指定するプラットフォームの文字数制約に収まっているか確認し、超えていれば削る案を出して。
+出力形式: 判定（収まる／超過）／超過している場合の削り案。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p85',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p85','prompt-85.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">86. フォロワーの疑問・コメントから次の企画を作る</div><pre class="prompt" id="p86">前提: 過去投稿についたコメントを企画のヒントにしたい。
+指示: この過去投稿へのコメント一覧（渡す）から、多く見られる疑問・要望を抽出し、それに応える投稿企画を作って。
+出力形式: よくある疑問／それに応える企画案、の対応表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p86',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p86','prompt-86.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">87. ハッシュタグ選定を目的別に整理する</div><pre class="prompt" id="p87">前提: 投稿の目的（認知拡大／保存狙い等）でハッシュタグ戦略を変えたい。
+指示: この投稿の目的（都度指定）に合わせて、使うべきハッシュタグの種類（ビッグワード／ニッチワード等）とバランスを提案して。
+出力形式: ハッシュタグの種類／狙い／推奨個数、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p87',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p87','prompt-87.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">88. 投稿データベースの蓄積フォーマットを設計する</div><pre class="prompt" id="p88">前提: 過去の投稿を、あとでAIが参照しやすい形で蓄積したい。
+指示: 投稿ごとに記録しておくべき項目（テーマ・成果数値・採用不採用の理由等）を設計して。
+出力形式: 記録項目とその説明を箇条書きで。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p88',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p88','prompt-88.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">89. 不採用になった企画の再利用案</div><pre class="prompt" id="p89">前提: 一度ボツになった企画を、別の切り口で活かしたい。
+指示: このボツ企画（内容と不採用理由を渡す）を、不採用理由を踏まえて別の切り口に作り替えて。
+出力形式: 元の企画／不採用理由／作り替え後の企画。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p89',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p89','prompt-89.txt',this)">⬇ ダウンロード</button></div></div>
+<h2 class="cat">経営管理・ダッシュボード運用</h2>
+<div class="icard"><div class="ititle">90. 既存ダッシュボードを自社版に再現するための質問リスト</div><pre class="prompt" id="p90">前提: 参考にしたいダッシュボード（他社事例やテンプレート）のリンクがある状態。
+指示: このダッシュボードを自社版として再現したい。再現に必要な情報（プロジェクトの単位・タスクのルール・見たい指標）を洗い出す質問リストを作って。
+出力形式: 質問項目を番号リストで、それぞれ「なぜその情報が必要か」を1行添える。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p90',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p90','prompt-90.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">91. プロジェクト・タスク管理ダッシュボードの設計</div><pre class="prompt" id="p91">前提: 会社全体の進行案件を1箇所で管理したい。
+指示: 渡す組織の案件の種類・規模感をもとに、プロジェクト単位・タスク単位で管理すべき項目（担当者・期限・進捗状況等）を設計して。
+出力形式: 管理項目一覧（表形式）。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p91',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p91','prompt-91.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">92. 未完了・機嫌切れタスクの検知ルール</div><pre class="prompt" id="p92">前提: 期限切れタスクが放置されがちで、把握が遅れる。
+指示: タスクの期限データをもとに、機嫌切れ（期限超過）を検知し、優先度順に並べて報告するルールを設計して。
+出力形式: 検知ルール（条件）／通知する情報（担当者・遅延日数等）。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p92',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p92','prompt-92.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">93. マーケティング・セールス・CRMダッシュボードの連携設計</div><pre class="prompt" id="p93">前提: 複数のダッシュボードがバラバラで、全体像が見えにくい。
+指示: マーケティング（流入経路）・セールス（成約チャネル）・CRM（顧客対応履歴）の3つのダッシュボードを、どの項目で紐づけるべきか設計して。
+出力形式: 紐づけキーとなる項目／それぞれのダッシュボードで見たい指標、の一覧。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p93',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p93','prompt-93.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">94. 週次のKPI管理シートを作る</div><pre class="prompt" id="p94">前提: 会社としてのKPI進捗を週次で追いたい。
+指示: 渡す事業のKPI項目をもとに、週次で追うべき指標と、目標に対する達成率の見せ方を設計して。
+出力形式: KPI項目／週次で見る数値／表示形式（達成率・推移グラフ等）。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p94',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p94','prompt-94.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">95. 経営者が見たい数値を言語化するヒアリング設計</div><pre class="prompt" id="p95">前提: 「どんな数値を見たいか」を経営者本人からうまく引き出したい。
+指示: 経営者に「見たい数値」をヒアリングするための質問リストを作って。プロジェクトの遅延・マーケティングの数字・タスクの紐付き等、幅広く聞き出せる形で。
+出力形式: 質問項目を番号リストで。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p95',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p95','prompt-95.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">96. AIエージェントに任せる管理業務の切り分け</div><pre class="prompt" id="p96">前提: 管理業務のうち、AIに任せられる部分と人が判断すべき部分を分けたい。
+指示: この管理業務（都度渡す一覧）について、AIエージェントが自動処理できるもの、人の最終判断が必要なものを切り分けて。
+出力形式: 業務名／AI任せ可否／理由、の3列表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p96',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p96','prompt-96.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">97. Slack通知の設計（見対応件数等）</div><pre class="prompt" id="p97">前提: 管理ダッシュボードの異常をSlackに自動通知したい。
+指示: このダッシュボードの数値（都度指定）について、どんな条件でSlackに通知すべきか、通知の文面例つきで設計して。
+出力形式: 通知条件／通知文面例、の対応表。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p97',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p97','prompt-97.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">98. ダッシュボード複製時の設計思想を引き継ぐドキュメント</div><pre class="prompt" id="p98">前提: ダッシュボードを別チームにも展開したい。
+指示: 今回作ったダッシュボードの設計思想（なぜこの項目を見るのか）を、別チームが読んでも理解できるドキュメントにまとめて。
+出力形式: 【背景】【見ている指標とその理由】【運用上の注意】の3項目。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p98',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p98','prompt-98.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">99. 複数事業の状況を1画面で俯瞰するレイアウト案</div><pre class="prompt" id="p99">前提: 複数事業を展開しており、経営者が全体を俯瞰したい。
+指示: 渡す事業リストをもとに、1画面で全事業の状況（進捗・数値）を俯瞰できるレイアウト案を設計して。
+出力形式: レイアウトのブロック構成（見出しと配置の説明）。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p99',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p99','prompt-99.txt',this)">⬇ ダウンロード</button></div></div>
+<div class="icard"><div class="ititle">100. エージェンティックループ化の設計メモを作る</div><pre class="prompt" id="p100">前提: 個別の自動化を1つのループにつなげる設計を検討している。
+指示: 渡す既存の自動化ツール一覧（クリエイティブ生成・レポート・レギュレーションチェック等）を、どうつなげば人が介在せず回るループになるか、設計の初期メモを作って。
+出力形式: 現状の自動化一覧／つなぐ順番の案／つなぐ際に検討が必要な論点。</pre><div class="cbtns"><button class="btn sm" onclick="copyPrompt('p100',this)">📋 コピー</button><button class="btn sm ghost" onclick="downloadText('p100','prompt-100.txt',this)">⬇ ダウンロード</button></div></div>
+<pre id="pfull" class="hidden"># 広告運用・代理店業務 実践プロンプト100選
+
+## クリエイティブ生成・素材制作
+
+### 1. 実写リファレンスから広告バナーを量産する
+
+前提: 実写で写真・映像を撮った商品素材を数枚アップロードした状態で使う、広告クリエイティブ担当者向けの指示。
+指示: アップロードした写真をリファレンスとして、商品のディテール（色・形状・ロゴ配置）を変えずに、背景と構図だけを変えたバリエーションを5案作って。1案ごとに狙っているターゲット層も添えて。
+出力形式: 各案ごとに「案名／狙い（1行）／変更点（背景・構図）」を箇条書きでまとめ、生成の意図が一覧できる表にして。
+
+### 2. 物理的に不可能な演出を検討する
+
+前提: 商品の内部構造や作用を視覚的に見せたい広告クリエイティブの企画段階。
+指示: この商品（サプリ／化粧品／家電など、都度指定）の効果を、実写では撮れない見せ方（体内での動き、内部構造の透過など）でアイデア出しして。実写と生成AIそれぞれで実現可能かどうかも判定して。
+出力形式: アイデアごとに「見せ方／実写可否／生成AI向き度（◎○△）」の3列表で。
+
+### 3. 既存クリエイティブの量産バリエーション出し
+
+前提: 1本の当たりクリエイティブがあり、そこから展開案を増やしたい状況。
+指示: この当たりクリエイティブの構成要素（フック・訴求ポイント・CTA）を分解し、フック部分だけを5パターン変えた台本案を作って。訴求ポイントとCTAは変えないこと。
+出力形式: 元クリエイティブの分解結果を先に箇条書きで示し、そのあとにフック違いの5パターンを番号付きリストで。
+
+### 4. リファレンス画像を使ったプロンプト設計
+
+前提: 画像生成AI（Nano Banana等）に渡すプロンプトを作る場面。参考画像はすでに用意されている。
+指示: 添付のリファレンス画像の構図・光の当たり方・色味を維持しつつ、被写体だけを別の商品に差し替えるための画像生成プロンプトを作って。商品のディテールを崩さない指示を明記すること。
+出力形式: 生成プロンプト本文をそのまま貼れる形で1つ出し、あわせて「崩れやすいポイントと対策」を3行で添えて。
+
+### 5. 実写で撮った方がいいものを判定する
+
+前提: クリエイティブ制作の初期段階で、AI生成と実写のどちらで作るか判断したい。
+指示: これから作る素材リスト（都度渡す）について、それぞれ「AI生成向き」か「実写の方がいい」かを判定して。商品ディテールの正確性が重要なものは実写寄りに倒す判断基準で。
+出力形式: 素材名／判定／理由（1行）の3列表。
+
+### 6. CG風の演出案を安く作る
+
+前提: 従来は外部発注していたCG演出を、生成AIでのコスト圧縮に置き換えたい。
+指示: 従来CGで発注していた演出内容（都度渡す）を、生成AIで代替できないか検討して。代替できる場合はそのままのプロンプト案を、できない場合は理由と次善策を出して。
+出力形式: 「代替可否／プロンプト案 or 次善策」の2段構成で、判断の根拠も1行添える。
+
+### 7. 広告動画の背景だけ差し替える
+
+前提: すでに撮った動画素材があり、コンセプトに合わせて背景の雰囲気だけ変えたい。
+指示: 主役（人物・商品）の動きや色味は変えず、背景だけを「白背景／黒背景／暖色系の生活感ある背景」の3パターンに差し替える生成の指示文を作って。
+出力形式: 3パターンそれぞれの指示文を分けて出し、どのコンセプトに合うかを1行で添える。
+
+### 8. 複数商品のクリエイティブを一括量産する
+
+前提: 同じフォーマットで扱う商品数が多い（10点以上）状況。
+指示: 共通のバナーフォーマット（構図・文字配置）を1つ決め、渡した商品リストの分だけ、商品名・価格・訴求文だけを差し替えたバリエーションを作る手順を設計して。
+出力形式: 手順を番号リストで示し、最後に「差し替えが必要な要素一覧」をチェックリスト形式で。
+
+### 9. インタメ系エンタメ演出のアイデア出し
+
+前提: 若年層向けにエンタメ性の強いクリエイティブを企画している。
+指示: この商品カテゴリ（都度指定）で、SNSでバズりやすいエンタメ演出（誇張・コミカルな展開等）のアイデアを10本出して。景表法・プラットフォーム規約に抵触しない範囲で。
+出力形式: アイデアごとに「概要／狙う反応（笑い・驚き等）」の2列。
+
+### 10. クリエイティブの色味・トーンを統一する
+
+前提: 複数人が別々に作った素材を、1つのブランドトーンに揃えたい。
+指示: 渡す複数のクリエイティブ（色味・雰囲気がバラバラ）を、指定のブランドカラー・トーンに揃えるための修正指示を、素材ごとに作って。
+出力形式: 素材名／現状の課題／修正指示（1〜2行）の3列表。
+
+### 11. 代替素材のプロンプトを即興で作る
+
+前提: 用意する予定だった素材が急遽使えなくなり、生成AIで代替する必要がある。
+指示: 用意する予定だった内容（構図・被写体・シーン）を伝えるので、それを再現する生成プロンプトをその場で作って。ディテールが重要な箇所は「参考資料が必要」と明記して。
+出力形式: 生成プロンプト本文＋「参考資料なしで再現できる自信度（高中低）」を添えて。
+
+### 12. ブランドガイドラインに沿った素材チェック
+
+前提: 生成した素材が、ブランドのトンマナ規定に沿っているか確認したい。
+指示: 渡すブランドガイドライン（色・フォント・NG表現）と、生成済みの素材の説明を照合し、逸脱している箇所を指摘して。
+出力形式: 逸脱箇所／ガイドラインのどの項目に反するか／修正案、の3列表。
+
+### 13. Before/After訴求のビジュアル台本を作る
+
+前提: 商品の効果を視覚的に伝えるBefore/After構成のクリエイティブを作りたい。
+指示: この商品（都度指定）のBefore/After訴求を、誇張しすぎない範囲でビジュアル台本にして。効果を保証するような断定表現は避けること。
+出力形式: Before描写／After描写／ナレーション案、の3段構成。
+
+### 14. 素材のサイズ・比率違い展開を洗い出す
+
+前提: 1本の素材を複数の配信面（Feed/Story/Reels等）に展開したい。
+指示: 元の素材（構図情報を渡す）を、Feed用（1:1）・Story用（9:16）・横型（16:9）にそれぞれ再構成するときに、削れる・足りなくなる要素を洗い出して。
+出力形式: 配信面ごとに「必要な調整点」を箇条書きで。
+
+### 15. ペルソナ別に訴求ポイントを変えた素材案
+
+前提: 同じ商品を異なるターゲット層に向けて展開したい。
+指示: この商品（都度指定）について、渡す3つのペルソナそれぞれに刺さる訴求ポイントとビジュアルの方向性を提案して。
+出力形式: ペルソナ名／刺さる訴求／ビジュアルの方向性、の3列表。
+
+### 16. 生成AIで作った素材のクレジット消費を見積もる
+
+前提: 生成AIツールのクレジット（利用枠）を管理しながら制作したい。
+指示: これから作りたい素材リスト（点数・複雑さ）を渡すので、試行錯誤を含めた想定クレジット消費量と、消費を抑えるための工夫を提案して。
+出力形式: 素材ごとの想定消費量（相対的な多寡）と、節約のコツを箇条書きで。
+
+### 17. 参考動画のトーン分析から自社案を作る
+
+前提: 他社の反響が良かった広告動画を参考にしたいが、模倣にならないようにしたい。
+指示: 参考動画の構成（テンポ・カット割り・訴求の順番）を要素分解し、それを踏まえた「自社商品向けの別企画」を1本考えて。表現やセリフは真似しないこと。
+出力形式: 参考動画の構成分析（箇条書き）→ 自社案の台本骨子、の2段構成。
+
+### 18. クリエイティブのA/Bテスト設計
+
+前提: 複数の訴求パターンを比較検証したい。
+指示: この商品（都度指定）について、フック・訴求・CTAのいずれか1要素だけを変えたA/Bパターンを3セット設計して。検証したい仮説も添えて。
+出力形式: パターン名／変更箇所／検証したい仮説、の3列表。
+
+### 19. 季節・イベントに合わせた素材展開案
+
+前提: 年間の販促カレンダーに沿ってクリエイティブを企画したい。
+指示: 直近3ヶ月のイベント（都度指定、例: 季節の変わり目・セール時期）に合わせて、この商品のクリエイティブ企画案を月ごとに1本ずつ出して。
+出力形式: 月／イベント／企画概要、の3列表。
+
+### 20. 縦型ショート動画の冒頭2秒フック案
+
+前提: TikTok/Reels/Shorts向けの縦型動画で、離脱の多い冒頭を強化したい。
+指示: この商品（都度指定）の縦型ショート動画について、最初の2秒で止めさせるフック案を10本出して。誇張表現・虚偽にならない範囲で。
+出力形式: フック案を番号リストで、それぞれ狙いを1行添える。
+
+## 広告運用・入稿・レポート
+
+### 21. 複数アカウントへの一括入稿設計
+
+前提: 同じクリエイティブを複数の広告アカウントに入稿する必要がある。
+指示: このクリエイティブ（本数）を、渡すアカウントリスト（数・媒体）に一括入稿する手順を設計して。アカウントごとに異なる設定（年齢・地域・配信面）がある場合の扱い方も含めて。
+出力形式: 手順を番号リストで、アカウントごとの差分は表で整理して。
+
+### 22. 入稿前のターゲティング設計チェック
+
+前提: 新規キャンペーンの入稿直前に設定ミスがないか確認したい。
+指示: この広告のターゲティング設定（年齢・地域・興味関心・配信面）を渡すので、ちぐはぐな点や、商品と噛み合っていない箇所を指摘して。
+出力形式: 設定項目／懸念点／修正案、の3列表。
+
+### 23. 日次レポートの自動要約フォーマットを作る
+
+前提: 毎朝の数値確認を、AIによる要約通知に置き換えたい。
+指示: 渡す広告管理画面のスクリーンショットまたは数値データから、CPA・CTR・消化金額の要点を3行で要約するフォーマットを設計して。異常値（前日比◯%以上の変化）は強調表示するルールも含めて。
+出力形式: 要約テンプレート本文（3行）＋異常値の判定基準、の2段構成。
+
+### 24. 予算オーバー（防発）の早期検知ルール
+
+前提: 予算超過に気づくのが遅れて赤字化するのを防ぎたい。
+指示: この広告アカウントの日予算と現在の消化ペースを渡すので、このペースで進むと何時ごろ予算超過するかを試算し、対応が必要なタイミングを教えて。
+出力形式: 試算結果（時刻の目安）と、推奨アクション（配信停止／予算調整等）を1〜2行で。
+
+### 25. 配信結果のPDCA判断を支援する
+
+前提: 配信中の広告の成果が微妙で、次のアクションを決めたい。
+指示: この広告の直近の数値推移（CPA・CTR・フリークエンシー）を渡すので、「クリエイティブを変える」「ターゲットを絞る」「配信を止める」のどれが適切か、判断根拠つきで提案して。
+出力形式: 判断（1つに絞る）／根拠（数値ベース）／次にやること、の3項目。
+
+### 26. 複数媒体の成果を横並びで比較する
+
+前提: Google・Meta・LINEヤフー・TikTok等、複数媒体に配信している状況。
+指示: 渡す媒体別の数値（CPA・CVR・消化金額）を横並びで比較し、どの媒体に予算を寄せるべきか提案して。媒体特性（ユーザー層の違い）も踏まえること。
+出力形式: 媒体比較表＋提案（1〜2行）。
+
+### 27. 入稿ミスの事前チェックリストを作る
+
+前提: 予算を預かる立場として、入稿ミスによる過剰配信を防ぎたい。
+指示: 入稿前に確認すべき項目（予算・期間・ターゲティング・クリエイティブ枚数など）を、渡す過去のミス事例をもとにチェックリスト化して。
+出力形式: □のチェック項目を箇条書きで、重要度の高いものには⚠️を付けて。
+
+### 28. 週次の予算配分を再設計する
+
+前提: 週の途中で成果の良し悪しに応じて予算配分を見直したい。
+指示: 渡す週次の広告アカウント別成果（CPA・消化金額）をもとに、来週の予算配分案を作って。成果の良いものに寄せつつ、テスト予算も一定確保する方針で。
+出力形式: アカウント名／今週CPA／来週の配分案（増減）、の3列表。
+
+### 29. クリエイティブ疲弊（フリークエンシー上昇）の検知
+
+前提: 同じクリエイティブを配信し続けて反応が落ちてきていないか確認したい。
+指示: 渡すフリークエンシーとCTRの推移から、クリエイティブが疲弊しているサインが出ているか判定し、出ていれば差し替えのタイミングを提案して。
+出力形式: 判定（疲弊あり／なし）／根拠／推奨アクション。
+
+### 30. レポートを非エンジニアにも分かる言葉で要約する
+
+前提: クライアント向けに、専門用語を使わない報告資料を作りたい。
+指示: この広告レポート（数値・専門用語込み）を、広告に詳しくないクライアント担当者にも伝わる言葉に言い換えて要約して。
+出力形式: 元の数値は残しつつ、それぞれに平易な一言解説を添える。
+
+### 31. 配信先の絞り込み判断（PC/モバイル・配置）
+
+前提: 配信先ごとの成果に差が出てきて絞り込みを検討したい。
+指示: 渡す配置別（PC/モバイル、フィード/ストーリーズ等）の成果データから、どの配置を止めるべきか、根拠つきで提案して。
+出力形式: 配置ごとの成果一覧表＋提案（止める/続ける）。
+
+### 32. 複数クリエイティブの入稿順序を設計する
+
+前提: 複数本のクリエイティブを、テスト目的で段階的に入稿したい。
+指示: この本数のクリエイティブを、いきなり全部ではなく段階的にテストする入稿スケジュールを設計して。学習期間や予算配分も含めて。
+出力形式: 週ごとの入稿スケジュール表。
+
+### 33. 赤字案件の原因切り分け
+
+前提: 配信しているが赤字（売れていない）状態の案件がある。
+指示: 渡す数値（CPA・CVR・LP直帰率）から、赤字の原因が「クリエイティブ」「ターゲティング」「LP」のどこにありそうか切り分けて。
+出力形式: 疑わしい箇所（優先順位つき）／根拠、の2列。
+
+### 34. 複数アカウントの異常値を一括スキャンする
+
+前提: 管理しているアカウント数が多く、目視での異常検知が追いつかない。
+指示: 渡す複数アカウントの数値一覧から、前日比で大きく変動している項目（予算消化・CPA・CTR）だけを抽出して報告して。
+出力形式: アカウント名／異常項目／変動幅、の3列表。
+
+### 35. 入稿後のダブルチェック指示文
+
+前提: 入稿ミスによるクライアント信頼低下を防ぎたい。
+指示: 入稿が完了した広告設定（予算・期間・ターゲット・クリエイティブ）の内容を渡すので、意図した内容と一致しているか、想定される訴求ターゲットとズレがないかを確認して。
+出力形式: 確認項目ごとに「OK／要確認」の判定と理由。
+
+### 36. 成果が良かった要因の言語化
+
+前提: 好調な案件の勝ち筋を、他の案件に横展開したい。
+指示: この好調な案件（数値・クリエイティブ概要）について、なぜ成果が良かったのか要因を分解して。他の案件に転用できそうな要素も指摘して。
+出力形式: 要因分解（箇条書き）→ 転用できそうな要素（1〜2点）。
+
+### 37. 媒体別のクリエイティブサイズ要件を整理する
+
+前提: 複数媒体に同じ企画を展開するとき、サイズ・尺の違いで手戻りが起きやすい。
+指示: 渡す配信予定の媒体リストごとに、必要なクリエイティブのサイズ・尺・ファイル形式の要件を整理して。
+出力形式: 媒体名／サイズ／尺／形式、の4列表。
+
+### 38. 成果報告のスライド構成案を作る
+
+前提: クライアント向け月次報告のスライドを効率よく作りたい。
+指示: 渡す月次数値サマリーをもとに、クライアント報告用スライドの構成案（結論→数値→要因→来月アクション）を作って。
+出力形式: スライドごとのタイトルと入れる内容を箇条書きで。
+
+### 39. 配信停止判断のための損益分岐点計算
+
+前提: 案件の継続可否を、感覚ではなく数字で判断したい。
+指示: 渡す商品の利益率と現在のCPAから、損益分岐となるCPAラインを計算し、現状がそれを超えているか判定して。
+出力形式: 損益分岐CPA／現状CPA／判定（継続可否）、の3項目。
+
+### 40. 入稿作業のログを引き継ぎ用に残す
+
+前提: 担当者交代時の引き継ぎで情報が漏れやすい。
+指示: 今日行った入稿・設定変更の内容を、次の担当者が読んでも分かる引き継ぎメモの形式でまとめて。
+出力形式: 日付／変更内容／理由／次にやるべきこと、の4項目。
+
+## レギュレーションチェック・審査対応
+
+### 41. クライアント別NGワードリストとの照合
+
+前提: クライアントごとに使ってはいけない表現のルールが決まっている。
+指示: 渡す広告原稿を、渡すNGワードリスト（このクライアント固有のルール）と照合し、該当箇所を指摘して。指摘には該当ルールの番号も添えて。
+出力形式: 該当箇所（原文引用）／該当ルール／修正案、の3列表。
+
+### 42. 薬機法・景表法に抵触しそうな表現の検出
+
+前提: 健康食品・化粧品等、規制の厳しいジャンルの広告原稿をチェックしたい。
+指示: この広告原稿について、効果を保証する断定表現や、薬機法・景表法に抵触しやすい言い回しがないか洗い出して。断定はできないので「疑わしい箇所」として報告する形にして。
+出力形式: 該当箇所／懸念理由／言い換え案、の3列表。
+
+### 43. 会社独自の表記ルールチェック（大文字・社名表記等）
+
+前提: 社名やブランド名の表記ゆれを防ぎたい。
+指示: この原稿に含まれる会社名・ブランド名・製品名の表記が、渡す正しい表記ルールと一致しているか確認して。
+出力形式: 誤表記箇所／正しい表記、の2列表。
+
+### 44. 差し戻し理由の分析と再発防止
+
+前提: 何度も同じ理由で審査に差し戻されている状況を改善したい。
+指示: 渡す過去の差し戻し履歴（理由の一覧）を分析し、頻出する差し戻し理由のパターンを整理して。今後のチェック項目に加えるべきものを提案して。
+出力形式: 頻出パターン（頻度順）／今後のチェック項目案。
+
+### 45. 表現の言い換えバリエーションを出す
+
+前提: NGと判定された表現を、意図を保ったまま安全な表現に置き換えたい。
+指示: このNG表現を、伝えたい意図（都度指定）は保ったまま、規約に抵触しない言い換え案を3パターン出して。
+出力形式: 言い換え案を3つ、それぞれのニュアンスの違いを1行で。
+
+### 46. 組織用語の言い換えルールチェック
+
+前提: 社内で「下の人間」等、社外向けに不適切な表現を使わないルールがある。
+指示: この原稿・資料の中に、社内向けの言い回しがそのまま社外向け表現として残っていないか確認して。
+出力形式: 該当箇所／推奨する言い換え、の2列表。
+
+### 47. 新規クライアントのレギュレーションDB雛形を作る
+
+前提: 新しいクライアントを担当することになり、審査ルールをこれから整備したい。
+指示: このクライアントから受け取ったブランドガイドライン（都度渡す）を、チェックしやすいNGワード・NG表現のリスト形式に整理して。
+出力形式: カテゴリ（表現・数値・比較表現等）ごとにNG項目を箇条書きで。
+
+### 48. 複数クライアントのルールを混同しないための確認
+
+前提: 複数クライアントを掛け持ちしており、ルールの取り違えが起きやすい。
+指示: この原稿がどのクライアント向けかを踏まえ、他のクライアントのルールが誤って適用されていないか確認して。
+出力形式: 確認結果（問題なし／要修正）と該当箇所。
+
+### 49. 誇大広告になっていないかのセルフチェック
+
+前提: 訴求を強めたい気持ちと規約遵守のバランスを取りたい。
+指示: この訴求文について、実際のデータや根拠と比べて誇張になっていないか確認して。根拠が弱い場合は「弱め表現」への言い換え案も出して。
+出力形式: 訴求文／根拠の有無／言い換え案（必要な場合）、の3列表。
+
+### 50. 比較表現（業界一位・最安等）の根拠チェック
+
+前提: 比較優位を示す表現を使いたいが、根拠が必要な規約がある。
+指示: この比較表現（業界一位・最安・業界初等）について、根拠として何が必要かを整理し、渡す手元資料でその根拠を満たせているか判定して。
+出力形式: 表現／必要な根拠／充足状況（○×）、の3列表。
+
+### 51. 審査提出前の最終読み合わせ指示文
+
+前提: 審査に出す直前の最終チェック工程を効率化したい。
+指示: この原稿一式（渡す）を、これまで指摘されたことのある観点（クライアント固有ルール・薬機法・景表法・表記ルール）で総合的にチェックして、提出可否を判定して。
+出力形式: 総合判定（提出可／要修正）／観点ごとの結果一覧。
+
+### 52. 動画クリエイティブのテロップ表現チェック
+
+前提: 動画内のテロップにも文字ベースの審査ルールが適用される。
+指示: この動画のテロップ文字起こし（渡す）を、通常の広告原稿と同じ基準でチェックして。
+出力形式: 該当箇所（該当テロップ）／懸念点／修正案、の3列表。
+
+### 53. レギュレーション更新時の差分チェック
+
+前提: クライアントからルールの一部変更連絡があった。
+指示: 旧ルールと新ルール（両方渡す）の差分を洗い出し、既存の稼働中クリエイティブの中に新ルールで引っかかるものがないか確認する手順を作って。
+出力形式: 差分一覧（旧→新）／既存クリエイティブへの影響有無の確認手順。
+
+### 54. 表現チェックの精度を上げるフィードバックループ
+
+前提: 差し戻されたものを次回から検出できるようにしたい。
+指示: 今回審査で新たにNGと分かった表現（都度渡す）を、今後のチェック用データベースに追加する形式でまとめて。
+出力形式: 「NG表現／NGと判断された理由／今後の判定ルールへの追加文」の3点セット。
+
+## LP分析・記事/コンテンツ生成
+
+### 55. 商品LPから記事のターゲット・悩みを抽出する
+
+前提: 記事（KLP）を作る前段階で、LPの情報を整理したい。
+指示: このLPのURL（または内容）から、ターゲット層・抱えている悩み・欲しい未来（ベネフィット）を抽出して。
+出力形式: ターゲット／悩み／欲しい未来、の3項目を箇条書きで。
+
+### 56. ストーリーフォーミュラで記事の骨子を作る
+
+前提: LP分析の結果をもとに、記事本文の構成を組み立てたい。
+指示: さっき抽出したターゲット・悩み・欲しい未来をもとに、共感→気づき→解決策提示→商品紹介の流れで記事の骨子を作って。
+出力形式: 各パートの見出し案と、そこで書く内容の要点（2〜3行）。
+
+### 57. 記事を大量パターン生成して選別する
+
+前提: 1つのLPから複数の切り口で記事を量産し、良いものを選びたい。
+指示: このLPの情報をもとに、異なる切り口（体験談風／比較検討風／専門家解説風など）の記事骨子を5パターン作って。
+出力形式: パターン名／切り口の説明／向いていそうな読者層、の3列表。
+
+### 58. 記事内の画像配置プランを作る
+
+前提: 記事の文章と画像を交互に配置してテンポよく読ませたい。
+指示: この記事本文（渡す）を読んで、どこに画像を入れると理解が深まるかを判定し、各箇所で入れるべき画像の内容（説明図・使用シーン等）を指定して。
+出力形式: 挿入位置（見出し名）／画像の内容案、の2列表。
+
+### 59. 記事のSEOタイトル・見出し案を作る
+
+前提: 検索流入も狙いたい記事を書いている。
+指示: この記事本文の内容から、検索されやすいタイトル案を5本と、見出し（H2）構成案を作って。誇張・薬機法に抵触する語は避けること。
+出力形式: タイトル案5本（箇条書き）＋見出し構成（番号リスト）。
+
+### 60. 記事のトーンをブランドに合わせて調整する
+
+前提: 記事の文体がブランドイメージと合っているか確認したい。
+指示: この記事本文を、渡すブランドトーン（例: 親しみやすい／専門的で信頼感）に合わせて調整して。
+出力形式: 調整後の記事本文全体。
+
+### 61. LP直帰率が高い箇所を推測する
+
+前提: LPの数値（直帰率・滞在時間）から改善点を探りたい。
+指示: このLPの構成（セクション順）と、渡す数値データ（各セクションの離脱ポイントが分かるもの）から、離脱が起きていそうな箇所を推測して。
+出力形式: 該当セクション／推測される離脱理由／改善案、の3列表。
+
+### 62. 記事とLPの内容の整合性チェック
+
+前提: 記事からLPへ遷移したときに、内容の齟齬で離脱されるのを防ぎたい。
+指示: この記事とLP（両方渡す）を読み比べて、訴求内容や約束していることにズレがないか確認して。
+出力形式: ズレている箇所／記事側の記載／LP側の記載、の3列表。
+
+### 63. 記事の量産におけるノウハウの言語化
+
+前提: 当たり記事を書いてきた経験を、AIが再現できる形で残したい。
+指示: これまで当たった記事（都度渡す複数本）に共通する型（構成・言い回し・展開のパターン）を分析して、今後の記事生成に使えるルールとして言語化して。
+出力形式: 共通する型の要素を箇条書きで、それぞれ具体例つきで。
+
+### 64. 既存記事のリライト・鮮度アップ
+
+前提: 過去に書いた記事の情報が古くなってきている。
+指示: この既存記事を、最新の情報（渡す最新データ・トレンド）を反映してリライトして。元の構成・トーンは維持すること。
+出力形式: リライト後の記事本文全体。
+
+### 65. 複数商品共通で使える記事テンプレートを作る
+
+前提: 同じジャンルの商品を今後何本も扱う予定がある。
+指示: このジャンル（都度指定）の商品記事に共通して使える構成テンプレートを作って。商品ごとに差し替える箇所を明示すること。
+出力形式: テンプレート本文（差し替え箇所は【】で明示）。
+
+### 66. 記事のCTA（行動喚起）文言を複数出す
+
+前提: 記事の最後で商品ページへの遷移率を上げたい。
+指示: この記事の内容を踏まえたCTA文言を5パターン出して。押し付けがましくなく、記事の流れから自然に読める言い回しで。
+出力形式: CTA案5本（箇条書き）。
+
+### 67. ユーザーの声・体験談パートの構成案
+
+前提: 記事内に信頼感を高めるユーザーの声セクションを入れたい。
+指示: この商品カテゴリで、記事に入れるユーザーの声セクションの構成案（何人分、どんな属性、どんな悩み→どう変わったか）を作って。実在しない体験談を捏造しないよう、構成のみに留めること。
+出力形式: 構成案（人物属性・語る内容の骨子）を3パターン。
+
+### 68. 記事の読了率を上げる導入部の改善
+
+前提: 記事冒頭での離脱を減らしたい。
+指示: この記事の導入部（最初の3〜5行）を、読者の悩みへの共感から始まる形に書き直して。誇張表現は避けること。
+出力形式: 書き直し後の導入部を3パターン。
+
+### 69. 記事作成の待ち時間中にできる次の作業を洗い出す
+
+前提: 記事生成に数十分かかる間、手が空く時間をどう使うか考えたい。
+指示: 記事生成を待っている間に並行して進められる、広告運用側の別タスクを洗い出して。優先度順に並べて。
+出力形式: タスク名／優先度／所要目安、の3列表。
+
+### 70. 記事のファクトチェック観点リストを作る
+
+前提: AI生成記事に事実誤認が混ざっていないか確認したい。
+指示: この記事本文について、数値・効果・比較表現のうち、根拠の裏取りが必要な箇所を洗い出して。
+出力形式: 該当箇所（引用）／確認すべき内容、の2列表。
+
+### 71. 記事のカテゴリ別パフォーマンス比較
+
+前提: どの切り口の記事が成果につながりやすいか把握したい。
+指示: 渡す記事カテゴリ別の成果データ（CTR・遷移率）から、次に量産すべき切り口を提案して。
+出力形式: カテゴリ別成果一覧表＋提案（1〜2行）。
+
+### 72. 記事のタイトルABテスト案を作る
+
+前提: 同じ記事本文で、タイトルの効果検証をしたい。
+指示: この記事本文に対して、異なる訴求角度のタイトルを3案作り、それぞれどんな読者に刺さりそうか添えて。
+出力形式: タイトル案／想定読者／訴求角度、の3列表。
+
+### 73. LPと記事のリンク構造を整理する
+
+前提: 複数の記事・LPが増えてきて、どこからどこに遷移させるか整理したい。
+指示: 渡す記事・LPのリストから、どの記事からどのLPに遷移させるのが最適か、内容の一致度をもとに提案して。
+出力形式: 記事名／推奨遷移先LP／理由（1行）、の3列表。
+
+### 74. 記事量産の品質を落とさないチェック体制案
+
+前提: 生成本数を増やすほど品質のばらつきが心配になる。
+指示: 記事を大量生成する運用において、最低限守るべき品質基準と、人によるレビューが必要な箇所を切り分けて設計して。
+出力形式: 品質基準（箇条書き）／AI任せでよい部分／人のレビューが必須な部分。
+
+## SNS企画・投稿運用
+
+### 75. 月間投稿企画をトレンドと過去実績から作る
+
+前提: 毎月の投稿企画を、トレンド調査と過去の反応データを踏まえて作りたい。
+指示: 渡す直近のトレンド情報と過去投稿のインサイトデータから、来月の投稿企画を10本作って。それぞれ狙う反応（保存・シェア・コメント等）も添えて。
+出力形式: 企画タイトル／狙う反応／概要（1〜2行）、の3列表を10本分。
+
+### 76. カルーセル投稿の構成案を作る
+
+前提: 横スライド式のカルーセル投稿を作りたい。
+指示: このテーマ（都度指定）で、カルーセル投稿（1枚目タイトル→中身複数枚→まとめ）の構成案を作って。各スライドの見出しと中の文章要点を含めて。
+出力形式: スライド番号／見出し／本文要点、の3列表。
+
+### 77. ミーティング議事録から次月の企画のヒントを拾う
+
+前提: 毎月のミーティングで出た話を企画に反映したい。
+指示: この議事録（渡す）から、投稿企画のヒントになりそうな話題・要望を抽出して。
+出力形式: 話題／企画化するとしたらどんな投稿になるか、の2列表。
+
+### 78. キャプション（本文）を複数トーンで作る
+
+前提: 投稿の画像・カルーセルは決まっていて、キャプションだけ複数案欲しい。
+指示: このカルーセルの内容（渡す）に対して、キャプションを「共感重視」「情報重視」「エンタメ寄り」の3トーンで作って。
+出力形式: トーン名／キャプション本文、の対で3セット。
+
+### 79. ブランドチェック込みの投稿最終確認
+
+前提: 投稿前にブランドのトンマナ・NG表現を確認したい。
+指示: この投稿内容（画像説明＋キャプション）を、渡すブランドガイドラインと照合し、修正すべき点があれば指摘して。
+出力形式: 確認項目ごとの判定（OK／要修正）と修正案。
+
+### 80. 投稿の差し戻し理由から改善指示を出す
+
+前提: 承認者から修正依頼が返ってきた企画を直したい。
+指示: この差し戻しコメント（渡す）をもとに、企画のどこをどう直せばいいか、具体的な修正指示に変換して。
+出力形式: 差し戻しコメント／対応する修正指示、の対応表。
+
+### 81. 週次でAI活用事例を共有するテンプレート
+
+前提: 社内でAI活用の知見を共有する文化を作りたい。
+指示: 今週試したAI活用の内容（都度渡す）を、他メンバーが読んで真似しやすい共有フォーマットにまとめて。
+出力形式: 【やったこと】【使ったツール・プロンプト】【結果・気づき】の3項目。
+
+### 82. 複数アカウント分の投稿企画を一括生成する
+
+前提: 運用するSNSアカウントが複数あり、まとめて企画を立てたい。
+指示: 渡すアカウントリスト（それぞれのテーマ・ターゲット）ごとに、来月の投稿企画をそれぞれ5本ずつ作って。
+出力形式: アカウント名ごとに見出しを分け、それぞれ企画タイトルを箇条書きで。
+
+### 83. インサイトデータから伸びる投稿の傾向を分析する
+
+前提: 過去投稿のインプレッション・保存数データがある。
+指示: 渡す過去投稿のインサイトデータから、反応が良かった投稿に共通する要素（テーマ・投稿時間・フォーマット）を分析して。
+出力形式: 共通要素（箇条書き）と、次の企画に活かす提案。
+
+### 84. 投稿スケジュールのカレンダー案を作る
+
+前提: 決まった企画を、投稿日にどう割り振るか決めたい。
+指示: この企画リスト（渡す）を、渡す投稿カレンダーの空き枠に、テーマが偏らないよう割り振って。
+出力形式: 日付／投稿テーマ、の表。
+
+### 85. 投稿文の文字数・プラットフォーム制約チェック
+
+前提: プラットフォームごとに文字数やハッシュタグ数の制約が違う。
+指示: この投稿文（渡す）が、指定するプラットフォームの文字数制約に収まっているか確認し、超えていれば削る案を出して。
+出力形式: 判定（収まる／超過）／超過している場合の削り案。
+
+### 86. フォロワーの疑問・コメントから次の企画を作る
+
+前提: 過去投稿についたコメントを企画のヒントにしたい。
+指示: この過去投稿へのコメント一覧（渡す）から、多く見られる疑問・要望を抽出し、それに応える投稿企画を作って。
+出力形式: よくある疑問／それに応える企画案、の対応表。
+
+### 87. ハッシュタグ選定を目的別に整理する
+
+前提: 投稿の目的（認知拡大／保存狙い等）でハッシュタグ戦略を変えたい。
+指示: この投稿の目的（都度指定）に合わせて、使うべきハッシュタグの種類（ビッグワード／ニッチワード等）とバランスを提案して。
+出力形式: ハッシュタグの種類／狙い／推奨個数、の3列表。
+
+### 88. 投稿データベースの蓄積フォーマットを設計する
+
+前提: 過去の投稿を、あとでAIが参照しやすい形で蓄積したい。
+指示: 投稿ごとに記録しておくべき項目（テーマ・成果数値・採用不採用の理由等）を設計して。
+出力形式: 記録項目とその説明を箇条書きで。
+
+### 89. 不採用になった企画の再利用案
+
+前提: 一度ボツになった企画を、別の切り口で活かしたい。
+指示: このボツ企画（内容と不採用理由を渡す）を、不採用理由を踏まえて別の切り口に作り替えて。
+出力形式: 元の企画／不採用理由／作り替え後の企画。
+
+## 経営管理・ダッシュボード運用
+
+### 90. 既存ダッシュボードを自社版に再現するための質問リスト
+
+前提: 参考にしたいダッシュボード（他社事例やテンプレート）のリンクがある状態。
+指示: このダッシュボードを自社版として再現したい。再現に必要な情報（プロジェクトの単位・タスクのルール・見たい指標）を洗い出す質問リストを作って。
+出力形式: 質問項目を番号リストで、それぞれ「なぜその情報が必要か」を1行添える。
+
+### 91. プロジェクト・タスク管理ダッシュボードの設計
+
+前提: 会社全体の進行案件を1箇所で管理したい。
+指示: 渡す組織の案件の種類・規模感をもとに、プロジェクト単位・タスク単位で管理すべき項目（担当者・期限・進捗状況等）を設計して。
+出力形式: 管理項目一覧（表形式）。
+
+### 92. 未完了・機嫌切れタスクの検知ルール
+
+前提: 期限切れタスクが放置されがちで、把握が遅れる。
+指示: タスクの期限データをもとに、機嫌切れ（期限超過）を検知し、優先度順に並べて報告するルールを設計して。
+出力形式: 検知ルール（条件）／通知する情報（担当者・遅延日数等）。
+
+### 93. マーケティング・セールス・CRMダッシュボードの連携設計
+
+前提: 複数のダッシュボードがバラバラで、全体像が見えにくい。
+指示: マーケティング（流入経路）・セールス（成約チャネル）・CRM（顧客対応履歴）の3つのダッシュボードを、どの項目で紐づけるべきか設計して。
+出力形式: 紐づけキーとなる項目／それぞれのダッシュボードで見たい指標、の一覧。
+
+### 94. 週次のKPI管理シートを作る
+
+前提: 会社としてのKPI進捗を週次で追いたい。
+指示: 渡す事業のKPI項目をもとに、週次で追うべき指標と、目標に対する達成率の見せ方を設計して。
+出力形式: KPI項目／週次で見る数値／表示形式（達成率・推移グラフ等）。
+
+### 95. 経営者が見たい数値を言語化するヒアリング設計
+
+前提: 「どんな数値を見たいか」を経営者本人からうまく引き出したい。
+指示: 経営者に「見たい数値」をヒアリングするための質問リストを作って。プロジェクトの遅延・マーケティングの数字・タスクの紐付き等、幅広く聞き出せる形で。
+出力形式: 質問項目を番号リストで。
+
+### 96. AIエージェントに任せる管理業務の切り分け
+
+前提: 管理業務のうち、AIに任せられる部分と人が判断すべき部分を分けたい。
+指示: この管理業務（都度渡す一覧）について、AIエージェントが自動処理できるもの、人の最終判断が必要なものを切り分けて。
+出力形式: 業務名／AI任せ可否／理由、の3列表。
+
+### 97. Slack通知の設計（見対応件数等）
+
+前提: 管理ダッシュボードの異常をSlackに自動通知したい。
+指示: このダッシュボードの数値（都度指定）について、どんな条件でSlackに通知すべきか、通知の文面例つきで設計して。
+出力形式: 通知条件／通知文面例、の対応表。
+
+### 98. ダッシュボード複製時の設計思想を引き継ぐドキュメント
+
+前提: ダッシュボードを別チームにも展開したい。
+指示: 今回作ったダッシュボードの設計思想（なぜこの項目を見るのか）を、別チームが読んでも理解できるドキュメントにまとめて。
+出力形式: 【背景】【見ている指標とその理由】【運用上の注意】の3項目。
+
+### 99. 複数事業の状況を1画面で俯瞰するレイアウト案
+
+前提: 複数事業を展開しており、経営者が全体を俯瞰したい。
+指示: 渡す事業リストをもとに、1画面で全事業の状況（進捗・数値）を俯瞰できるレイアウト案を設計して。
+出力形式: レイアウトのブロック構成（見出しと配置の説明）。
+
+### 100. エージェンティックループ化の設計メモを作る
+
+前提: 個別の自動化を1つのループにつなげる設計を検討している。
+指示: 渡す既存の自動化ツール一覧（クリエイティブ生成・レポート・レギュレーションチェック等）を、どうつなげば人が介在せず回るループになるか、設計の初期メモを作って。
+出力形式: 現状の自動化一覧／つなぐ順番の案／つなぐ際に検討が必要な論点。
+
+以上、100個です。内訳: クリエイティブ生成・素材制作20本、広告運用・入稿・レポート20本、レギュレーションチェック・審査対応14本、LP分析・記事/コンテンツ生成20本、SNS企画・投稿運用15本、経営管理・ダッシュボード運用11本。</pre>
+</main><footer>ClaudeCodeチャンネル ｜ このプレゼントは自由に使ってください</footer>
+<script>
+function copyTextWithFallback(text){
+  function fb(){try{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();
+    const ok=document.execCommand('copy');ta.remove();return ok;}catch(e){return false;}}
+  if(navigator.clipboard&&navigator.clipboard.writeText){return navigator.clipboard.writeText(text).then(()=>true).catch(fb);}
+  return Promise.resolve(fb());
+}
+function showCopyResult(btn,ok){const o=btn.dataset.o||btn.textContent;btn.dataset.o=o;
+  btn.textContent=ok?'✔ コピーしました':'✖ コピー不可 → ⬇をご利用ください';setTimeout(()=>{btn.textContent=o;},ok?1600:3200);}
+async function copyPrompt(id,btn){const ok=await copyTextWithFallback(document.getElementById(id).textContent);showCopyResult(btn,ok);}
+function downloadText(id,fn,btn){try{const t=document.getElementById(id).textContent;const b=new Blob([t],{type:'text/plain;charset=utf-8'});
+  const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download=fn;document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(u),2000);}catch(e){if(btn){const o=btn.textContent;btn.textContent='✖ 保存不可';setTimeout(()=>{btn.textContent=o;},3000);}}}
+</script></div></body></html>
